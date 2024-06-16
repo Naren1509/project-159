@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en" dir="ltr">
+        <meta charset="utf-8" />
+        <title>Comic</title>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+        <script src="./js/comic.js"></script>
+        <script src="./js/cursorEvents.js"></script>
+        <script src="./js/infobanner.js"></script>
+    </head>
+    <body>
+        <a-scene id="main-scene" background="color:#90CAF9">
+            <a-plane id="ground" color="#78909C" width="200" height="100" rotation="-90 0 0"></a-plane>
+            <!--<a-sky color="#ADD8E6" id="main-container" radius="100000"></a-sky>-->
+            <a-entity id="nail-container" comics-poster cursor-listener></a-entity>
+            <a-camera id="camera" wasd-controls="enabled:false" position="0 10 20">
+                <a-entity 
+                id="camera-cursor" 
+                cursor position="0 0 -1" 
+                geometry="primitive:ring; 
+                radiusInner:0.02; 
+                radiusOuter:0.03" 
+                material="color:orange; shader:flat">
+
+                </a-entity>
+                <a-entity
+                id="app-title"
+                position="0 0.73 -1"
+                text="font: exo2bold; align: center; width: 2; color: #000; value: Virtual Comic-con!!!"
+                >
+                    <a-entity
+                    id="app-subtitle"
+                    position="0 -0.1 0"
+                    text="font: dejavu; align: center; width: 1; color: #0F184E; value: At Your Computer"
+                    ></a-entity>
+                </a-entity>
+
+            </a-camera>
+            <a-entity id="FadeBackground" geometry="primitive:sphere;radius:2.5"
+            material="color:black; side:back; shader:flat; transparent:true; opacity:0.6"
+            visible="false" cursor-listener></a-entity>
+
+        </a-scene>
+    </body>
+</html>
